@@ -24,10 +24,7 @@ const moviesSlice = createSlice({
             state.isLoading = false;
             state.data = action.payload;
        });
-       builder.addCase(fetchMoviesByTime.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.data = action.payload;
-   });
+      
         
     }
 });
