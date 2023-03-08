@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useEffect } from "react";
 import { useDispatch ,useSelector} from "react-redux";
 import { fetchTheatres } from "../../../store";
@@ -46,9 +47,9 @@ function Theatres(){
                                     </div>
                                 </div>
                                 <div className='col-md-4 d-flex justify-content-center align-items-center'>
-                                    <a   className='btn btn-outline-success text-dark' >
+                                    <Link to={`/moviespage/${theatre.theatreId}`}  className='btn btn-outline-success text-dark' >
                                         View Movies
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchTheatres } from '../thunks/fetchTheatres';
+import { fetchTheatres, fetchTheatresByMovie } from '../thunks/fetchTheatres';
 
 const theatresSlice = createSlice({
     name : 'theatres',
@@ -19,6 +19,13 @@ const theatresSlice = createSlice({
         builder.addCase(fetchTheatres.rejected, (state, action)=>{
             state.isLoading = false;
             state.error = action.error;
+        });
+        builder.addCase(fetchTheatresByMovie.pending, (state, action) => {
+            state.isLoading = true;
+        });
+        builder.addCase(fetchTheatresByMovie.fulfilled, (state, action)=>{
+            state.isLoading = false;
+            state.data = action.payload;
         });
     }
 });
