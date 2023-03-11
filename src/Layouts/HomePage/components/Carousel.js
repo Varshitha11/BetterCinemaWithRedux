@@ -9,23 +9,25 @@ function Carousel(){
     const {isLoading, data, error} = useSelector((state) => {
        return state.movies;
     })
-
+    
     useEffect(() => {
         dispatch(fetchMovies());
     }, [dispatch]);
 
+    let content;
     if(isLoading) {
-        return <div>Loading...</div>
+        content =  <div>Loading...</div>
     }
 
     if(error){
-        return <div>Error fetching data...</div>
+        content =  <div>Error fetching data...</div>
     }
 
     return (
         <div className='container mt-5' style={{ height: 550 }}>
+             {content}
             <div className='homepage-carousel-title'>
-                <h3>New Movies</h3>
+                <h3>New Movies </h3>
             </div>
             <div id='carouselExampleControls' className='carousel carousel-dark slide mt-5 
                 d-none d-lg-block' data-bs-interval='false'>
@@ -36,7 +38,7 @@ function Carousel(){
                         <div className='row d-flex justify-content-center align-items-center'>
                             {
                             data.slice(0, 3).map(movie => (
-                                <ReturnMovie key={movie.id} movie = {movie}/>
+                                <ReturnMovie key={movie.id} movie = {movie} />
                             ))}
                         </div>
                     </div>

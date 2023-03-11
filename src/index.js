@@ -12,10 +12,11 @@ const el = document.getElementById('root');
 const root = createRoot(el);
 
 root.render(
-    <BrowserRouter>
-
-    <Provider store={store}>
-        <App/>
-    </Provider>
-   </BrowserRouter>
+    <React.StrictMode>
+        <BrowserRouter>
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </BrowserRouter>
+    </React.StrictMode>
 );

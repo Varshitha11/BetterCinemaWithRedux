@@ -13,5 +13,11 @@ const fetchTheatresByMovie = createAsyncThunk('theatresByMovie/fetch', async (id
     return response.data;
 });
 
+const fetchScreens = createAsyncThunk('screens/fetch', async (showId) => {
+    const response = await axios.get(`http://localhost:8087/getScreenFromShowAndTime/${showId}`);
+    return response.data;
+});
+
 export {fetchTheatres};
 export {fetchTheatresByMovie};
+export{fetchScreens};

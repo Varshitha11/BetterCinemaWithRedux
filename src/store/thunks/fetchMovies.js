@@ -6,6 +6,7 @@ const fetchMovies = createAsyncThunk('movies/fetch', async () => {
     return response.data;
 });
 
+
 const fetchMoviesById = createAsyncThunk('moviesById/fetch', async (id) => {
     const response = await axios.get(`http://localhost:8087/movies/${id}`);
     return response.data;

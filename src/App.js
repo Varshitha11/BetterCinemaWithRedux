@@ -5,6 +5,9 @@ import AllTabs from './Layouts/SearchMoviesPage/AllTabs';
 import TheatresPage from './Layouts/HomePage/components/TheatresPage';
 import MoviesPage from './Layouts/HomePage/components/MoviesPage';
 import ShowsPage from './Layouts/HomePage/components/ShowsPage';
+import SeatsPage from './Layouts/HomePage/components/SeatsPage';
+import Payments from './Layouts/HomePage/components/Payments';
+import TicketsPage from './Layouts/HomePage/components/TicketsPage';
 
 function App(){
     return (
@@ -15,6 +18,9 @@ function App(){
          <Route path='/theatresPage/:id' element={<TheatresPage />}></Route>
          <Route path='/moviespage/:theatreId' element={<MoviesPage />}></Route>
          <Route path='/showspage/:id/:theatreId' element={<ShowsPage />}></Route>
+         <Route path='/seatsPage' element={<SeatsPage />}></Route>
+         <Route path='/paymentPage' element={<Payments/>}></Route>
+         <Route path='/ticketsPage' element={<TicketsPage/>}></Route>
          </Routes>
         </div>
     );

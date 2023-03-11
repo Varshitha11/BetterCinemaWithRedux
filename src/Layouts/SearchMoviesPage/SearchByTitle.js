@@ -4,27 +4,29 @@ import { useEffect, useState } from "react";
 import SearchMovie from "./SearchMovie";
 import { fetchMoviesByTitle } from "../../store";
 import { fetchMovies } from "../../store";
+import { setSearch } from "../../store/slices/dataSlice";
 
-function SearchByTitle(){
-
-    const[search ,setSearch] = useState('');
+function SearchByTitle() {
 
     const dispatch = useDispatch();
-    const { data } = useSelector((state) => {
-       return state.movies;
-       
+    const { data, search } = useSelector((state) => {
+        return {
+            data: state.movies.data,
+            search: state.reserveSeat.search,
+        }
     })
 
     useEffect(() => {
         dispatch(fetchMovies());
     }, [dispatch]);
 
-     const searchHandleChange = (e) => {
-       if(search)
-        dispatch(fetchMoviesByTitle(search));
-       else
-       dispatch(fetchMovies());
-        
+    
+    const searchHandleChange = (e) => {
+        if (search)
+            dispatch(fetchMoviesByTitle(search));
+        else
+            dispatch(fetchMovies());
+
     }
 
     return (
@@ -34,7 +36,7 @@ function SearchByTitle(){
                     <div className='d-flex'>
                         <input className='form-control me-2' type='search'
                             placeholder='Search' aria-labelledby='Search'
-                            onChange={e => setSearch(e.target.value)} 
+                            onChange={e => dispatch(setSearch(e.target.value))}
                         />
                         <button className='btn btn-outline-success'
                             onClick={searchHandleChange}>
@@ -44,7 +46,7 @@ function SearchByTitle(){
                 </div>
             </div>
             <>
-            {data.map(movie => (
+                {data.map(movie => (
                     <SearchMovie key={movie.id} movie={movie} />
                 ))}
             </>

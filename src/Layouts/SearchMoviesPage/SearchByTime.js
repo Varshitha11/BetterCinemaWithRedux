@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
-import SearchMovie from "./SearchMovie"; 
+import SearchMovie from "./SearchMovie";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMoviesByTime} from "../../store";
+import { fetchMoviesByTime } from "../../store";
 
 
-function SearchByTime(){
+function SearchByTime() {
 
     const dispatch = useDispatch();
-    const { data  } = useSelector((state) => {
+    const { data } = useSelector((state) => {
         return state.searchByTime;
     })
 
+
     const HandleClick = (e) => {
-           dispatch(fetchMoviesByTime(e));  
+        dispatch(fetchMoviesByTime(e));
     }
-    
+
     return (
         <div className='container'>
             <div className="row justify-content-center">
@@ -29,16 +30,16 @@ function SearchByTime(){
                 </div>
             </div>
             <>
-                {data.map(movie => (
+                {[...data].sort((a,b) => a.id - b.id).map(movie => (
                     <SearchMovie key={movie.id} movie={movie} />
                 ))}
             </>
 
-           
-                <Link className="btn btn-primary mt-4" to={"/"}>
-                    Back to Home
-                </Link>
-            
+
+            <Link className="btn btn-primary mt-4" to={"/"}>
+                Back to Home
+            </Link>
+
         </div>
 
 

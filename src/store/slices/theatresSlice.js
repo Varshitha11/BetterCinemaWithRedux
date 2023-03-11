@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchTheatres, fetchTheatresByMovie } from '../thunks/fetchTheatres';
+import { fetchScreens, fetchTheatres, fetchTheatresByMovie } from '../thunks/fetchTheatres';
 
 const theatresSlice = createSlice({
     name : 'theatres',
     initialState: {
         data: [],
+        theatredata : [],
+        screendata : [],
         isLoading: false,
         error: null,
     },
@@ -25,7 +27,15 @@ const theatresSlice = createSlice({
         });
         builder.addCase(fetchTheatresByMovie.fulfilled, (state, action)=>{
             state.isLoading = false;
-            state.data = action.payload;
+            state.theatredata = action.payload;
+        });
+        builder.addCase(fetchTheatresByMovie.rejected, (state, action)=>{
+            state.isLoading = false;
+            state.error = action.error;
+        });
+        builder.addCase(fetchScreens.fulfilled, (state, action)=>{
+            state.isLoading = false;
+            state.screendata = action.payload;
         });
     }
 });
