@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { saveMovie } from "../../store/slices/saveDataSlice";
+import { saveMovie } from "../../store/slices/dataSlice";
 
 function SearchMovie({movie}) {
     const dispatch = useDispatch();

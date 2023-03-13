@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { saveMovie } from "../../../store/slices/saveDataSlice";
+import { saveMovie } from "../../../store/slices/dataSlice";
 
 
 function ReturnMovie({movie}) {
@@ -17,8 +17,8 @@ function ReturnMovie({movie}) {
                         alt="movie"
                     />
                    
-                <h6 className='mt-2'>{movie.title}</h6>
-                <Link to={`/theatresPage/${movie.id}`} className='btn btn-primary' onClick={() => { dispatch(saveMovie(movie));}} > Reserve</Link> 
+                <h5 className='mt-2 text-white'>{movie.title}</h5>
+                <Link to={`/theatresPage/${movie.id}`} className='btn btn-primary fs-5' onClick={() => { dispatch(saveMovie(movie));}} > Reserve</Link> 
             </div>
         </div>
     );

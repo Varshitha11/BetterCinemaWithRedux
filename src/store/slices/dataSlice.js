@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  bookSeat: {
+  movieData: {
     value: null
   },
   search: {
@@ -16,11 +16,11 @@ const initialState = {
 }
 
 export const dataSlice = createSlice({
-  name: 'reserveSeat',
+  name: 'data',
   initialState,
   reducers: {
-    reserveSeat: (state, action) => {
-      state.bookSeat = action.payload;
+    saveMovie: (state, action) => {
+      state.movieData = action.payload;
     },
     saveSeat: (state, action) => {
       state.saveSeat = action.payload;
@@ -35,6 +35,6 @@ export const dataSlice = createSlice({
 })
 
 
-export const { reserveSeat, saveSeat ,saveShows ,setSearch} = dataSlice.actions
+export const {saveMovie, reserveSeat, saveSeat ,saveShows ,setSearch} = dataSlice.actions
 
 export default dataSlice.reducer

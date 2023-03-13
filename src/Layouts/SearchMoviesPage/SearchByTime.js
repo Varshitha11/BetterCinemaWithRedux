@@ -6,9 +6,11 @@ import { fetchMoviesByTime } from "../../store";
 
 function SearchByTime() {
 
+
+    
     const dispatch = useDispatch();
-    const { data } = useSelector((state) => {
-        return state.searchByTime;
+    const { searchByTime } = useSelector((state) => {
+        return state.movies;
     })
 
 
@@ -22,23 +24,18 @@ function SearchByTime() {
                 <div className="buttons col-sm-12">
                     <div className='d-flex'>
 
-                        <button className='btn btn-outline-success' onClick={() => HandleClick("today")} >today</button>
-                        <button className='btn btn-outline-success' onClick={() => HandleClick("tomorrow")} >tomorrow</button>
-                        <button className='btn btn-outline-success' onClick={() => HandleClick("wednesday")} >wednesday</button>
-                        <button className='btn btn-outline-success' onClick={() => HandleClick("thursday")} >thursday</button>
+                        <button className='btn btn-success  fs-5' onClick={() => HandleClick("today")} >today</button>
+                        <button className='btn btn-success  fs-5' onClick={() => HandleClick("tomorrow")} >tomorrow</button>
+                        <button className='btn btn-success fs-5' onClick={() => HandleClick("wednesday")} >wednesday</button>
+                        <button className='btn btn-success fs-5' onClick={() => HandleClick("thursday")} >thursday</button>
                     </div>
                 </div>
             </div>
             <>
-                {[...data].sort((a,b) => a.id - b.id).map(movie => (
+                {[...searchByTime].sort((a,b) => a.id - b.id).map(movie => (
                     <SearchMovie key={movie.id} movie={movie} />
                 ))}
             </>
-
-
-            <Link className="btn btn-primary mt-4" to={"/"}>
-                Back to Home
-            </Link>
 
         </div>
 

@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchMovies, fetchMoviesById, fetchMoviesByTheatre, fetchMoviesByTitle, fetchShowById } from '../thunks/fetchMovies';
+import { fetchMovies, fetchMoviesById, fetchMoviesByTheatre, fetchMoviesByTime, fetchMoviesByTitle} from '../thunks/fetchMovies';
 
 const moviesSlice = createSlice({
     name: 'movies',
     initialState: {
         data: [],
+        searchByTime : [],
         moviedata : '',
         isLoading: false,
         error: null,
@@ -43,7 +44,10 @@ const moviesSlice = createSlice({
             state.isLoading = false;
             state.moviedata = action.payload;
         });
-
+        builder.addCase(fetchMoviesByTime.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.searchByTime = action.payload;
+       });
     }
 });
 

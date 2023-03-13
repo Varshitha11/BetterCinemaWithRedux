@@ -20,7 +20,7 @@ function TicketsPage(props) {
                             <h4>
                                 Enjoy the Show
                             </h4>
-                            <Link className="btn btn-primary mx-2 mt-3" to={"/"}>
+                            <Link className="btn btn-primary mx-2 mt-3" to={"/home"}>
                                 Back To Home Page
                             </Link>
                         </div>
