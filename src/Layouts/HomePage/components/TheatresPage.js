@@ -27,7 +27,7 @@ function TheatresPage() {
                 <div className="row justify-content-center pt-5">
                     <div className="col-sm-5">
                         {[...theatredata].sort((a, b) => a.theatreId - b.theatreId).map(theatre => (
-                            <div className='card mt-3 shadow p-3 mb-3 bg-body rounded' key={theatre.theatreId}>
+                            <div className='card' key={theatre.theatreId}>
                                 <div className='row'>
                                     <div className='col-md-2 text-center'>
                                         <Link to={`/showspage/${id}/${theatre.theatreId}`}

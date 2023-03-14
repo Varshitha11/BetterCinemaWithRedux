@@ -31,15 +31,15 @@ function SeatsPage(props) {
         <>
             <Navbar />
             <div className='container'>
-                <div className="text-center text-white py-3">
+                <div className="seats-heading">
                     <h1>Select Seats</h1>
                 </div>
-                <div className="row pt-5 justify-content-center">
-                    <div className="col-md-6 text-center">
+                <div className="seats-selection row">
+                    <div className="col-md-6">
                         {
 
                             [...seatsData].sort((a, b) => a.seatId - b.seatId).slice(0, 20).map(seats => (
-                                <button className='btn btn-outline-light'
+                                <button className=' btn btn-outline-success'
                                     onClick={(e) => { dispatch(saveSeat(seats)) }} key={seats.seatId} value={`${seats.seatId}`} >
                                     {seats.seatNumber}</button>
                             ))
@@ -47,12 +47,12 @@ function SeatsPage(props) {
                     </div >
                 </div>
 
-                <div className="row mt-5 justify-content-center">
-                    <div className="col-md-6 text-center">
+                <div className="seats-selection row">
+                    <div className="col-md-6">
                         {
 
                             [...seatsData].sort((a, b) => a.seatId - b.seatId).slice(20, 40).map(seats => (
-                                <button className='btn btn-outline-light'
+                                <button className='btn btn-outline-success'
                                     onClick={(e) => { dispatch(saveSeat(seats)) }} key={seats.seatId} value={`${seats.seatId}`} >
                                     {seats.seatNumber}</button>
                             ))
@@ -61,9 +61,9 @@ function SeatsPage(props) {
                 </div>
 
 
-                <div className='col-md-12 mt-4 d-flex justify-content-center align-items-center'>
+                <div className='buttons-group col-md-12 '>
                     <Link to={`/paymentPage`} >
-                        <button className='btn btn-primary fs-5 mt-3' > Book Tickets </button>
+                        <button className='btn btn-primary fs-5' > Book Tickets </button>
                     </Link>
                 </div>
 

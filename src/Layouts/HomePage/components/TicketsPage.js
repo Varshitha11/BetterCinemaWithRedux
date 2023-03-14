@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../../Navbar/Navbar';
 
 
 function TicketsPage(props) {
     return (
+        <>
+        <Navbar/>
         <div className='container'>
             <div className="row justify-content-center">
                 <div className="col-sm-5">
@@ -17,18 +20,16 @@ function TicketsPage(props) {
                             />
                         </div>
                         <div className='text-center mt-3'>
-                            <h4>
+                            <h3>
                                 Enjoy the Show
-                            </h4>
-                            <Link className="btn btn-primary mx-2 mt-3" to={"/home"}>
-                                Back To Home Page
-                            </Link>
+                            </h3>
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

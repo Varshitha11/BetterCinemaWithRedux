@@ -45,7 +45,7 @@ function ShowsPage() {
                         }
                     </div>
                     <div className='col-4 col-md-4 '>
-                        <div className='ml-2 text-white'>
+                        <div className='shows-info'>
                             <h1>{moviedata.title}</h1>
                             <h4>{moviedata.language}</h4>
                             <p className='lead'>{moviedata.description}</p>
@@ -67,7 +67,7 @@ function ShowsPage() {
                     </div>
                 </div>
                 {[...showdata].sort((a, b) => a.showId - b.showId).map(show => (
-                    <Link to={`/seatsPage`} className=' btn btn-warning fs-5 main-color  m-2'
+                    <Link to={`/seatsPage`} className=' btn btn-warning fs-5  m-2'
                         key={show.showId} onClick={() => { dispatch(saveShows(show)); }} >
                         {show.day} &nbsp;
                     </Link>

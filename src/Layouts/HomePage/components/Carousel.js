@@ -26,8 +26,8 @@ function Carousel(){
     return (
         <div className='container mt-5' style={{ height: 550 }}>
              {content}
-            <div className='homepage-carousel-title text-white'>
-                <h3>New Movies </h3>
+            <div className='homepage-carousel-title'>
+                <h2> New Movies </h2>
             </div>
             <div id='carouselExampleControls' className='carousel carousel-dark slide mt-5 
                 d-none d-lg-block' data-bs-interval='false'>

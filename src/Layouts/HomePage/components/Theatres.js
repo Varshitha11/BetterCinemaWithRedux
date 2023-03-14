@@ -25,11 +25,11 @@ function Theatres() {
     return (
         <div className='container'>
             <div className="row justify-content-center">
-                <div className="col-sm-6 text-dark">
-                    <div className='text-center text-white'> <h4>Theatres</h4></div>
+                <div className="col-sm-6 ">
+                    <div className='theatre-name'> <h3>Theatres</h3></div>
                     
                     {data.map(theatre => (
-                        <div className=' card list mt-3 shadow p-3 mb-3  rounded' key={theatre.theatreId}>
+                        <div className=' card ' key={theatre.theatreId}>
                             <div className='row g-0'>
                                 <div className='col-md-2'>
                                     <h4>
@@ -39,15 +39,12 @@ function Theatres() {
                                 </div>
                                 <div className='col-md-6'>
                                     <div className='card-body'>
-
                                         <h4>
                                             {theatre.city}
                                         </h4>
-
-
                                     </div>
                                 </div>
-                                <div className='col-md-4 d-flex justify-content-center align-items-center'>
+                                <div className='col-md-4 '>
                                     <Link to={`/moviespage/${theatre.theatreId}`} className='btn btn-outline-success text-dark' >
                                         View Movies
                                     </Link>

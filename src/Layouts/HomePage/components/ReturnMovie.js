@@ -17,7 +17,7 @@ function ReturnMovie({movie}) {
                         alt="movie"
                     />
                    
-                <h5 className='mt-2 text-white'>{movie.title}</h5>
+                <h5 className='mt-2'>{movie.title}</h5>
                 <Link to={`/theatresPage/${movie.id}`} className='btn btn-primary fs-5' onClick={() => { dispatch(saveMovie(movie));}} > Reserve</Link> 
             </div>
         </div>

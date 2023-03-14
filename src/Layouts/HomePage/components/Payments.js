@@ -39,7 +39,7 @@ function Payments(props) {
         <div className='container'>
             <div className="row justify-content-center">
                 <div className="col-sm-6">
-                    <div className='card mt-3 shadow p-3 mb-3 bg-body rounded'>
+                    <div className='card'>
                         <div className='row g-0'>
                             <div className='col-md-6'>
                                 {<img
@@ -53,7 +53,7 @@ function Payments(props) {
                             </div>
 
                             <div className='col-md-6'>
-                                <div className='card-body rounded border border-grey'>
+                                <div className='card-body border border-grey'>
 
                                     <h4>
                                         {movieData.title}
@@ -75,12 +75,12 @@ function Payments(props) {
                             </div>
 
                         </div>
-                        <div className='text-center mt-3'>
+                        <div className='buttons-group'>
                             <Link to={`/ticketsPage`}>
-                                <button className='btn btn-primary fs-5 mt-3' onClick={handleClick} value={`${saveSeat.seatId}`}> Confirm Booking
+                                <button className='btn btn-primary fs-5 ' onClick={handleClick} value={`${saveSeat.seatId}`}> Confirm Booking
                                 </button>
                             </Link>
-                            <Link className="btn btn-primary mx-2 mt-3 fs-5" to={`/seatsPage`}>
+                            <Link className="btn btn-primary mx-2  fs-5" to={`/seatsPage`}>
                                 Back to Seats
                             </Link>
                         </div>

@@ -28,7 +28,7 @@ function MoviesPage() {
                     <div className="col-sm-6">
 
                         {[...data].sort((a, b) => a.id - b.id).map(movie => (
-                            <div className='card mt-3 shadow p-3 mb-3 bg-body rounded' key={movie.id}>
+                            <div className='card' key={movie.id}>
                                 <div className='row g-0'>
                                     <div className='col-sm-2 col-md-4'>
                                         <div className='movies'>
@@ -59,8 +59,8 @@ function MoviesPage() {
 
                                         </div>
                                     </div>
-                                    <div className='col-md-3 d-flex justify-content-center align-items-center'>
-                                        <Link to={`/showspage/${movie.id}/${theatreId}`} className='btn btn-primary main-color text-white' onClick={() => { dispatch(saveMovie(movie)); }} >
+                                    <div className='col-md-3 showlink'>
+                                        <Link to={`/showspage/${movie.id}/${theatreId}`} className='btn btn-primary' onClick={() => { dispatch(saveMovie(movie)); }} >
                                             Book Tickets
                                         </Link>
                                     </div>

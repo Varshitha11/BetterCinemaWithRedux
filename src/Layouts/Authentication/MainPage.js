@@ -6,11 +6,11 @@ function MainPage(props) {
 
       <div className="container pt-5">
 
-        <div className="display-5 text-center text-white">
+        <div className="display-5 text-center ">
           <br/>
           <br/>
           <br/>
-          <h1><b> BetterCinemaExperience</b></h1>
+          <h1><b>Welcome To BetterCinemaExperience</b></h1>
           <h5><b>Click on Register if Account Doesnot Exist !!</b></h5>
         </div>
         <br />

@@ -17,7 +17,9 @@ const moviesSlice = createSlice({
         builder.addCase(fetchMovies.fulfilled, (state, action) => {
             state.isLoading = false;
             state.data = action.payload;
+            state.searchByTime = [];
         });
+        
         builder.addCase(fetchMovies.rejected, (state, action) => {
             state.isLoading = false;
             state.error = action.error;
