@@ -1,31 +1,31 @@
 import { useEffect } from "react";
-import { useDispatch ,useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies } from "../../../store";
 import ReturnMovie from "./ReturnMovie";
 
-function Carousel(){
+function Carousel() {
 
     const dispatch = useDispatch();
-    const {isLoading, data, error} = useSelector((state) => {
-       return state.movies;
+    const { isLoading, data, error } = useSelector((state) => {
+        return state.movies;
     })
-    
+
     useEffect(() => {
         dispatch(fetchMovies());
     }, [dispatch]);
 
     let content;
-    if(isLoading) {
-        content =  <div>Loading...</div>
+    if (isLoading) {
+        content = <div>Loading...</div>
     }
 
-    if(error){
-        content =  <div>Error fetching data...</div>
+    if (error) {
+        content = <div>Error fetching data...</div>
     }
 
     return (
         <div className='container mt-5' style={{ height: 550 }}>
-             {content}
+            {content}
             <div className='homepage-carousel-title'>
                 <h2> New Movies </h2>
             </div>
@@ -37,18 +37,18 @@ function Carousel(){
                     <div className='carousel-item active'>
                         <div className='row d-flex justify-content-center align-items-center'>
                             {
-                            data.slice(0, 3).map(movie => (
-                                <ReturnMovie key={movie.id} movie = {movie} />
-                            ))}
+                                data.slice(0, 3).map(movie => (
+                                    <ReturnMovie key={movie.id} movie={movie} />
+                                ))}
                         </div>
                     </div>
                     <div className='carousel-item'>
                         <div className='row d-flex justify-content-center align-items-center'>
-                           
+
                             {
-                              data.slice(3, 6).map(movie => (
-                                  <ReturnMovie key ={movie.id} movie = {movie}/>
-                            ))}
+                                data.slice(3, 6).map(movie => (
+                                    <ReturnMovie key={movie.id} movie={movie} />
+                                ))}
                         </div>
                     </div>
                     <button className='carousel-control-prev' type='button'
@@ -67,8 +67,7 @@ function Carousel(){
             {/* Mobile */}
             <div className='d-lg-none mt-3'>
                 <div className='row d-flex justify-content-center align-items-center'>
-                   
-                <ReturnMovie key={data.id} movie ={data}  />
+                    <ReturnMovie key={data.id} movie={data} />
                 </div>
             </div>
         </div>

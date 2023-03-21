@@ -6,9 +6,9 @@ import { fetchTheatres } from "../../../store";
 function Theatres() {
 
     const dispatch = useDispatch();
+
     const { isLoading, data, error } = useSelector((state) => {
         return state.theatres;
-
     })
 
     useEffect(() => {
@@ -27,7 +27,7 @@ function Theatres() {
             <div className="row justify-content-center">
                 <div className="col-sm-6 ">
                     <div className='theatre-name'> <h3>Theatres</h3></div>
-                    
+
                     {data.map(theatre => (
                         <div className=' card ' key={theatre.theatreId}>
                             <div className='row g-0'>

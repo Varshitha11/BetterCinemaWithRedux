@@ -11,9 +11,7 @@ const moviesSlice = createSlice({
         error: null,
     },
     extraReducers(builder) {
-        builder.addCase(fetchMovies.pending, (state, action) => {
-            state.isLoading = true;
-        });
+
         builder.addCase(fetchMovies.fulfilled, (state, action) => {
             state.isLoading = false;
             state.data = action.payload;
@@ -37,11 +35,6 @@ const moviesSlice = createSlice({
             state.data = action.payload;
         });
         
-
-        builder.addCase(fetchMoviesById.pending, (state, action) => {
-            state.isLoading = true;
-        });
-
         builder.addCase(fetchMoviesById.fulfilled, (state, action) => {
             state.isLoading = false;
             state.moviedata = action.payload;

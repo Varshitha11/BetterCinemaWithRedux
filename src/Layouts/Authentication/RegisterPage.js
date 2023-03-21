@@ -46,8 +46,14 @@ function RegisterPage(props) {
 
     return (
         <div className="register-form py-3">
+            <div className="text-center py-3">
+                <h1><b>BetterCinemaExperience</b></h1>
+            </div>
             <div className="container col-sm-4">
                 <div className='card mt-5 shadow p-3 mb-3 bg-body rounded'>
+                <div className=" py-3">
+                        <h2>Create Account</h2>
+                    </div>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">
                             <label><h5>Username</h5></label>

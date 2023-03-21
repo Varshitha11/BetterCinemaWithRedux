@@ -5,7 +5,14 @@ const loginPost = createAsyncThunk('login/authenticate', async (data) => {
     const response = await axios.post("http://localhost:8089/authenticate", {
         userName: data.username,
         userPassword: data.password,
-    });window.location.href = "/home";
+    }).catch((error => {
+         alert('invalid username or password');
+    }))
+    if (response.data.jwtToken) {
+        localStorage.setItem("user", JSON.stringify(response.data));
+      }
+     window.location.href = "/home";
+
     return response.data;
 });
 
@@ -15,7 +22,11 @@ const RegisterUser = createAsyncThunk('register/user', async (data) => {
         userFirstName: data.firstName,
         userLastName: data.lastName,
         userPassword: data.password,
-    });window.location.href = "/login";
+    });
+    if(response.status === 200){
+        window.location.href = "/login";
+    }
+    // window.location.href = "/login";
     return response.data;
 });
 

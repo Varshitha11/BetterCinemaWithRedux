@@ -21,13 +21,13 @@ function AllTabs() {
             className={activeTab === "tab1" ? "active" : ""}
             onClick={handleTab1}
           >
-            Search Movie
+           <h5> Search By Title</h5>
           </li>
           <li
             className={activeTab === "tab2" ? "active" : ""}
             onClick={handleTab2}
           >
-            Search By Time
+            <h5>Search By Time</h5>
           </li>
         </ul>
 

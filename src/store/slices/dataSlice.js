@@ -12,7 +12,11 @@ const initialState = {
   },
   saveShows: {
     value: null
-  }
+  },
+  getuser : {
+    value :[]
+  },
+ 
 }
 
 export const dataSlice = createSlice({
@@ -31,10 +35,14 @@ export const dataSlice = createSlice({
     setSearch: (state, action) => {
       state.search = action.payload;
     },
+    getUser: (state,action) => {
+      state.getuser = action.payload;
+    },
+    
   },
 })
 
 
-export const {saveMovie, reserveSeat, saveSeat ,saveShows ,setSearch} = dataSlice.actions
+export const {saveMovie, saveSeat ,saveShows ,setSearch , getUser} = dataSlice.actions
 
 export default dataSlice.reducer

@@ -5,8 +5,7 @@ import { fetchMoviesById, fetchShowsById } from '../../../store';
 import { saveShows } from '../../../store/slices/dataSlice';
 import Navbar from '../../Navbar/Navbar';
 
-
-function ShowsPage() {
+function ShowPage() {
 
     const { id } = useParams();
     const { theatreId } = useParams();
@@ -14,6 +13,7 @@ function ShowsPage() {
     const [time, setTime] = useState(null);
 
     const dispatch = useDispatch();
+
     const { moviedata, showdata } = useSelector((state) => {
         return {
             moviedata: state.movies.moviedata,
@@ -22,14 +22,18 @@ function ShowsPage() {
     });
 
 
+    const currentDate = new Date().toISOString().slice(0, 10); // get current date in yyyy-mm-dd format
+    const currentTime = new Date().toLocaleTimeString("en-US", { hour12: false }); // get current time in 24-hour format
+
     useEffect(() => {
         dispatch(fetchMoviesById(id));
         dispatch(fetchShowsById([id, theatreId, time]))
     }, [dispatch, time]);
 
-    // const HandleClick = (e) => {
-    //     dispatch(fetchShowsById([id, theatreId, e]));
-    // }
+
+    const HandleClick = (e) => {
+        setTime(e);
+    }
 
     return (
         <div>
@@ -58,25 +62,38 @@ function ShowsPage() {
                     <div className="row mt-5 justify-content-center">
                         <div className='col-sm-8'>
                             <div className=" buttons">
-                                <button className='btn btn-success fs-5' onClick={() => setTime("today")} >today</button>
-                                <button className='btn btn-success fs-5' onClick={() => setTime("tomorrow")} >tomorrow</button>
-                                <button className='btn btn-success fs-5' onClick={() => setTime("wednesday")} >wednesday</button>
-                                <button className='btn btn-success fs-5' onClick={() => setTime("thursday")} >thursday</button>
+                                <button className='btn btn-success fs-5' onClick={() => HandleClick("2023-03-21")} >2023-03-21</button>
+                                <button className='btn btn-success fs-5' onClick={() => HandleClick("2023-03-22")} >2023-03-22</button>
+                                <button className='btn btn-success fs-5' onClick={() => HandleClick("2023-03-23")} >2023-03-23</button>
+                                <button className='btn btn-success fs-5' onClick={() => HandleClick("2023-03-24")} >2023-03-24</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                {[...showdata].sort((a, b) => a.showId - b.showId).map(show => (
-                    <Link to={`/seatsPage`} className=' btn btn-warning fs-5  m-2'
-                        key={show.showId} onClick={() => { dispatch(saveShows(show)); }} >
-                        {show.day} &nbsp;
-                    </Link>
-                ))}
+                <div className=" d-flex col-md-6">
+                    {[...showdata].sort((a, b) => a.showId - b.showId).map((show, index) => {
+                        if (show.time === currentDate && show.day >= currentTime) {
+                            return <div key={index}>
+                                <Link to={`/seatsPage`} className=' btn btn-warning fs-5  m-2'
+                                    key={index} onClick={() => { dispatch(saveShows(show)); }} >
+                                    {show.day} &nbsp;
+                                </Link>
+                            </div>;
+                        }
+
+                        else if (show.time > currentDate) {
+                            return <div key={index}>
+                                <Link to={`/seatsPage`} className=' btn btn-warning fs-5  m-2'
+                                    key={index} onClick={() => { dispatch(saveShows(show)); }} >
+                                    {show.day} &nbsp;
+                                </Link>
+                            </div>;
+                        }
+                    })}
+                </div>
             </div>
         </div>
-
-
     );
-
 }
-export default ShowsPage;
+
+export default ShowPage;

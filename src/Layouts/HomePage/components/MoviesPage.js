@@ -10,6 +10,7 @@ function MoviesPage() {
     const { theatreId } = useParams();
 
     const dispatch = useDispatch();
+    
     const { data } = useSelector((state) => {
         return {
             data: state.movies.data,

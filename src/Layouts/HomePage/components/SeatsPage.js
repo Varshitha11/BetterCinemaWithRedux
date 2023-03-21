@@ -2,19 +2,17 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchSeats } from '../../../store';
-import {saveSeat } from '../../../store/slices/dataSlice';
+import { saveSeat } from '../../../store/slices/dataSlice';
 import Navbar from '../../Navbar/Navbar';
 
 function SeatsPage(props) {
 
-    // const { showId } = useParams();
-
     const dispatch = useDispatch();
+
     const { seatsData, saveShows } = useSelector((state) => {
         return {
             seatsData: state.seats.seatsData,
             saveShows: state.data.saveShows,
-            //bookSeat: state.reserveSeat.bookSeat,
         }
     });
 
@@ -22,10 +20,6 @@ function SeatsPage(props) {
         dispatch(fetchSeats(saveShows.showId));
     }, [dispatch]);
 
-
-    // const handleClick = (e) => {
-    //     dispatch(reserveSeat(e.target.value));
-    // }
 
     return (
         <>

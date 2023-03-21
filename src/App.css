@@ -10,7 +10,7 @@
 
 .app {
   background-color:rgb(227, 233, 211);
-  /* background-image: linear-gradient(rgba(74, 74, 74, 0.8), rgba(74, 74, 74, 0.8)), url('https://th.bing.com/th/id/R.95a0363de611673a6a1645b38a06952b?rik=BdHCdlaNLWAhxw&riu=http%3a%2f%2fhirharang.com%2fwp-content%2fuploads%2f2018%2f07%2fMovie-Ticket-Booking-Online.jpg&ehk=SvdVzYTnaOaUeQDxMdZs84XVEUKkdgqRLIJz14xnd0g%3d&risl=&pid=ImgRaw&r=0');
+  /* background-image: url('https://getwallpapers.com/wallpaper/full/4/2/1/11293.jpg');
   background-repeat: no-repeat;
   background-size: cover; */
   min-height: 100vh;
@@ -41,6 +41,10 @@
   cursor: default;
 }
 
+.logout-button{
+  justify-content: end;
+}
+
 .Tabs {
   min-height: 89vh;
   padding: 2rem 1rem;
@@ -67,7 +71,7 @@ ul.nav li {
   transition: all 0.7s;
   border-bottom-left-radius: 2rem;
   border-top-left-radius: 2rem;
-  color: white;
+  color: black;
 }
 
 ul.nav li:nth-child(2) {

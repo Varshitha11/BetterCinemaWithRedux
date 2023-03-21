@@ -2,9 +2,10 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { loginPost } from '../../store/thunks/Login';
+
 
 
 function LoginPage(props) {
@@ -32,15 +33,22 @@ function LoginPage(props) {
     });
 
     const onSubmit = async (data) => {
-       dispatch(loginPost(data));
+        dispatch(loginPost(data));
     };
+
     return (
         <div className="register-form py-3">
+            <div className="text-center py-3">
+                <h1><b>BetterCinemaExperience</b></h1>
+            </div>
             <div className="container col-sm-4">
                 <div className='card mt-5 shadow p-3 mb-3 bg-light rounded'>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className=" py-3">
+                        <h2>Sign in </h2>
+                    </div>
+                    <form className="py-3"  onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group ">
-                           <label><h5>Username</h5></label> 
+                            <label><h5>Username</h5></label>
                             <input
                                 name="username"
                                 type="text"

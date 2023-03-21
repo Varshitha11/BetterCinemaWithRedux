@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { bookings } from '../thunks/bookings';
+import { bookings , fetchMovieByUserName, fetchOrders} from '../thunks/bookings';
 
 const bookingSlice = createSlice({
     name: 'bookings',
     initialState: {
         bookings: [],
+        orders : [],
+        movieByUserName : '',
         isLoading: false,
         error: null,
     },
@@ -17,6 +19,14 @@ const bookingSlice = createSlice({
         builder.addCase(bookings.fulfilled, (state, action) => {
             state.isLoading = false;
             state.bookings.push(action.payload);
+        });
+        builder.addCase(fetchOrders.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.orders = action.payload;
+        });
+        builder.addCase(fetchMovieByUserName.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.movieByUserName = action.payload;
         });
 
     }

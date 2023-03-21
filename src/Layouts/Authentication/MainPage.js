@@ -11,7 +11,7 @@ function MainPage(props) {
           <br/>
           <br/>
           <h1><b>Welcome To BetterCinemaExperience</b></h1>
-          <h5><b>Click on Register if Account Doesnot Exist !!</b></h5>
+          <h5><b>Click on Register if Account Doesn't Exist !!</b></h5>
         </div>
         <br />
         <div className="container text-center">

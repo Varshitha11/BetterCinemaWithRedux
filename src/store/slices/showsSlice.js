@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {  fetchShowsById } from '../thunks/fetchShows';
+import { fetchShowsById } from '../thunks/fetchShows';
 
+
+const today = new Date();
+const hour = today.getHours();
 const showsSlice = createSlice({
     name: 'shows',
     initialState: {
@@ -17,7 +20,7 @@ const showsSlice = createSlice({
         builder.addCase(fetchShowsById.fulfilled, (state, action) => {
             state.isLoading = false;
             state.showdata = action.payload;
-       });
+        });
 
     }
 });

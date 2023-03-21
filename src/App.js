@@ -4,13 +4,15 @@ import './App.css';
 import AllTabs from './Layouts/SearchMoviesPage/AllTabs';
 import TheatresPage from './Layouts/HomePage/components/TheatresPage';
 import MoviesPage from './Layouts/HomePage/components/MoviesPage';
-import ShowsPage from './Layouts/HomePage/components/ShowsPage';
 import SeatsPage from './Layouts/HomePage/components/SeatsPage';
 import Payments from './Layouts/HomePage/components/Payments';
 import TicketsPage from './Layouts/HomePage/components/TicketsPage';
 import MainPage from './Layouts/Authentication/MainPage';
 import LoginPage from './Layouts/Authentication/LoginPage';
 import RegisterPage from './Layouts/Authentication/RegisterPage';
+import Orders from './Layouts/HomePage/components/Orders';
+import ShowPage from './Layouts/HomePage/components/ShowPage';
+
 
 function App(){
     return (
@@ -21,9 +23,10 @@ function App(){
          <Route path='/register' element={<RegisterPage />}></Route>
          <Route path ='/home' element={ <Home/>}></Route>
          <Route path='/search' element={<AllTabs/>}></Route>
+         <Route path='/orders' element={<Orders/>}></Route>
          <Route path='/theatresPage/:id' element={<TheatresPage />}></Route>
          <Route path='/moviespage/:theatreId' element={<MoviesPage />}></Route>
-         <Route path='/showspage/:id/:theatreId' element={<ShowsPage />}></Route>
+         <Route path='/showspage/:id/:theatreId' element={<ShowPage/>}></Route>
          <Route path='/seatsPage' element={<SeatsPage />}></Route>
          <Route path='/paymentPage' element={<Payments/>}></Route>
          <Route path='/ticketsPage' element={<TicketsPage/>}></Route>
